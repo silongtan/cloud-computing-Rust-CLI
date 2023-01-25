@@ -1,5 +1,12 @@
-# rust-new-project-template
-A good starting point for a new Rust project
+# Input Pattern Counter
+A rust based command-line tool to count occurrence based on user input patttern.
+
+# Installation
+
+
+# Usage
+
+
 
 ## References
 
