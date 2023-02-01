@@ -1,24 +1,27 @@
 #![allow(unused)]
+use std::env;
 
-use clap::Parser;
+use rust_cli::{list_files, recently_modified, dir_size};
 
-/// Search for a pattern in a file and display the lines that contain it.
-#[derive(Parser)]
-struct Cli {
-    /// The pattern to look for
-    pattern: String,
-    /// The path to the file to read
-    path: std::path::PathBuf,
-}
+// fn terminal() {
+//     loop {
+//         let mut input = String::new();
+//         std::io::stdin().read_line(&mut input).unwrap();
+//         let input = input.trim();
+
+//         match input {
+//             "list" => list_files(),
+//             "recent" => recently_modified(),
+//             "size" => dir_size(),
+//             "exit" => break,
+//             _ => println!("Invalid command"),
+//         }
+//     }
+// }
 
 fn main() {
-    let args = Cli::parse();
-
-    let content = std::fs::read_to_string(&args.path).expect("could not read file");
-
-    for line in content.lines() {
-        if line.contains(&args.pattern) {
-            println!("{}", line);
-        }
-    }
+    // terminal();
+    list_files();
+    recently_modified();
+    dir_size();
 }

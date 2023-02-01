@@ -8,7 +8,8 @@ A rust based command-line tool to count occurrence based on user input patttern.
 To run the tool use the following code:
 ``` cargo run -- <PATTERN> <FILE> ```
 
-
+### Todo
+AWS Deployment (Lamda)
 
 ## References
 
