@@ -2,7 +2,7 @@
 A rust based command-line shell. It simulates some functions of linux shell. 
 
 # Flow graph
-
+![rustp1](https://user-images.githubusercontent.com/70916756/217599823-4749008f-c46b-4271-a36c-8df21709a65c.png)
 
 # Usage
 To run the tool use the following code: \
