@@ -32,7 +32,7 @@ fn main() {
     let args = Cli::parse();
     match args.command {
         Some(Commands::Run { name }) => {
-            containerized_rust_shell::greeting(&name);
+            greeting(&name);
             terminal();
         }
         None => println!("No subcommand was used"),
