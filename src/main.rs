@@ -20,21 +20,6 @@ enum Commands {
     },
 }
 
-// fn terminal() {
-//     loop {
-//         let mut input = String::new();
-//         std::io::stdin().read_line(&mut input).unwrap();
-//         let input = input.trim();
-        
-//         match input {
-//             "list" => list_files(),
-//             "size" => dir_size(),
-//             "exit" => break,
-//             _ => println!("Invalid command"),
-//         }
-//     }
-// }
-
 fn greeting(name: &str) {
     println!("Welcome to the basic shell");
     println!("Type 'list' to list files in the current directory");
@@ -44,12 +29,10 @@ fn greeting(name: &str) {
 }
 
 fn main() {
-    // terminal();
-    
     let args = Cli::parse();
     match args.command {
         Some(Commands::Run { name }) => {
-            greeting(&name);
+            containerized_rust_shell::greeting(&name);
             terminal();
         }
         None => println!("No subcommand was used"),
