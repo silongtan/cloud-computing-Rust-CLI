@@ -11,7 +11,7 @@ Then type the following commands \
 ``` size ``` \
 which list the size of the current directory in bytes \
 ``` list ``` \
-which list all the files under current directory
+which list all the files under current directory \
 ``` exit ``` \
 which exit the shell
 
