@@ -1,4 +1,4 @@
-use std::{fs, env};
+use std::{fs};
 use walkdir::WalkDir;
 // use glob::glob;
 
@@ -8,34 +8,6 @@ pub fn list_files() {
     for path in paths {
         println!("{}", path.unwrap().path().display())
     }
-}
-
-pub fn recently_modified() -> Result<(), Box<dyn std::error::Error>> {
-    let current_dir = env::current_dir()?;
-    println!(
-        "Entries modified in the last 24 hours in {:?}:",
-        current_dir
-    );
-
-    for entry in fs::read_dir(current_dir)? {
-        let entry = entry?;
-        let path = entry.path();
-
-        let metadata = fs::metadata(&path)?;
-        let last_modified = metadata.modified()?.elapsed()?.as_secs();
-
-        if last_modified < 24 * 3600 && metadata.is_file() {
-            println!(
-                "Last modified: {:?} seconds, is read only: {:?}, size: {:?} bytes, filename: {:?}",
-                last_modified,
-                metadata.permissions().readonly(),
-                metadata.len(),
-                path.file_name().ok_or("No filename")?
-            );
-        }
-    }
-
-    Ok(())
 }
 
 pub fn dir_size() {
@@ -49,4 +21,19 @@ pub fn dir_size() {
         .fold(0, |acc, m| acc + m.len());
 
     println!("Total size: {} bytes.", total_size);
+}
+
+pub fn terminal() {
+    loop {
+        let mut input = String::new();
+        std::io::stdin().read_line(&mut input).unwrap();
+        let input = input.trim();
+        
+        match input {
+            "list" => list_files(),
+            "size" => dir_size(),
+            "exit" => break,
+            _ => println!("Invalid command"),
+        }
+    }
 }
