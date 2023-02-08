@@ -1,7 +1,7 @@
 # Rust based shell
 A rust based command-line shell. It simulates some functions of linux shell. 
 
-# Installation
+# Flow graph
 
 
 # Usage
@@ -15,7 +15,9 @@ which list all the files under current directory
 ``` exit ``` \
 which exit the shell
 
-
+## Containerized
+``` docker build -t rust-shell . ```
+``` docker run --rm -it rust-shell --help ```
 
 
 ## References
